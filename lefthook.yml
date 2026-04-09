@@ -1,0 +1,30 @@
+pre-commit:
+  parallel: true
+  commands:
+    lint-style:
+      glob: '*.{css,scss,sass,less,styl,html,vue}'
+      run: pnpm stylelint --fix --cache --allow-empty-input {staged_files}
+      stage_fixed: true
+    lint-vue:
+      glob: '*.vue'
+      run: pnpm eslint --fix --cache {staged_files}
+      stage_fixed: true
+    lint-js:
+      glob: '*.{js,jsx,ts,tsx}'
+      run: pnpm eslint --fix --cache {staged_files}
+      stage_fixed: true
+    lint-package:
+      glob: 'package.json'
+      run: pnpm prettier --write --cache {staged_files}
+      stage_fixed: true
+    lint-json:
+      glob: '{!(package)*.json,*.code-snippets,.!(browserslist)*rc}'
+      run: pnpm prettier --write --cache {staged_files}
+      stage_fixed: true
+
+post-merge:
+  commands:
+    install:
+      glob: 'pnpm-lock.yaml'
+      files: git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD
+      run: pnpm i --frozen-lockfile
