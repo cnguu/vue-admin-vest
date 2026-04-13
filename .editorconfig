@@ -13,3 +13,6 @@ insert_final_newline = false
 
 [*.{yml,yaml}]
 insert_final_newline = false
+
+[*.{ts,tsx,vue}]
+ij_typescript_import_merge_members = false

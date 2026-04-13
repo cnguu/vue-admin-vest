@@ -25,6 +25,7 @@ const config: Config = {
   experimentalTernaries: true,
   printWidth: 100,
   plugins: [
+    'prettier-plugin-sh',
     'prettier-plugin-tailwindcss',
     'prettier-plugin-packagejson',
     '@ianvs/prettier-plugin-sort-imports',
@@ -52,6 +53,20 @@ const config: Config = {
   importOrderParserPlugins: ['typescript', 'jsx'],
   importOrderTypeScriptVersion: '6.0.2',
   importOrderCaseSensitive: true,
+  overrides: [
+    {
+      files: ['.env', '.env.*', '*.sh'],
+      options: {
+        parser: 'sh',
+        indent: 2,
+        binaryNextLine: true,
+        switchCaseIndent: true,
+        spaceRedirects: true,
+        keepComments: true,
+        functionNextLine: false,
+      },
+    },
+  ],
 }
 
 export default config

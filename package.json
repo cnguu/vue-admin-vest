@@ -27,7 +27,7 @@
     "scripts": {
         "build": "run-p type-check \"build-only {@}\" --",
         "build-only": "vite build",
-        "dev": "vite",
+        "dev": "vite --mode dev",
         "format": "prettier --write --cache --ignore-unknown src/",
         "preinstall": "npx only-allow pnpm",
         "lint:eslint": "eslint . --fix --cache",
@@ -70,7 +70,9 @@
         "postcss-scss": "4.0.9",
         "prettier": "3.8.1",
         "prettier-plugin-packagejson": "3.0.2",
+        "prettier-plugin-sh": "0.18.1",
         "prettier-plugin-tailwindcss": "0.7.2",
+        "sass-embedded": "1.99.0",
         "stylelint": "17.6.0",
         "stylelint-config-recess-order": "7.7.0",
         "stylelint-config-recommended": "18.0.0",
