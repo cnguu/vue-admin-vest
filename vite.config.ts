@@ -1,28 +1,18 @@
-import type { ConfigEnv } from 'vite';
+import type { ConfigEnv } from 'vite'
 
+import { URL, fileURLToPath } from 'node:url'
 
+import VitePluginTailwindcss from '@tailwindcss/vite'
+import VitePluginLegacy from '@vitejs/plugin-legacy'
+import VitePluginVue from '@vitejs/plugin-vue'
+import VitePluginVueJsx from '@vitejs/plugin-vue-jsx'
+import { visualizer as RollupPluginVisualizer } from 'rollup-plugin-visualizer'
+import { NodePackageImporter } from 'sass-embedded'
+import { createLogger, defineConfig, loadEnv } from 'vite'
+import VitePluginVueDevTools from 'vite-plugin-vue-devtools'
 
-import { URL, fileURLToPath } from 'node:url';
-
-
-
-import VitePluginTailwindcss from '@tailwindcss/vite';
-import VitePluginLegacy from '@vitejs/plugin-legacy';
-import VitePluginVue from '@vitejs/plugin-vue';
-import VitePluginVueJsx from '@vitejs/plugin-vue-jsx';
-import { visualizer as RollupPluginVisualizer } from 'rollup-plugin-visualizer';
-import { NodePackageImporter } from 'sass-embedded';
-import { createLogger, defineConfig, loadEnv } from 'vite';
-import VitePluginVueDevTools from 'vite-plugin-vue-devtools';
-
-
-
-import { VitePluginTailwindReference } from './builder/plugin';
-import { getServerProxy } from './builder/util';
-
-
-
-
+import { VitePluginTailwindReference } from './builder/plugin'
+import { getServerProxy } from './builder/util'
 
 const logger = createLogger()
 
