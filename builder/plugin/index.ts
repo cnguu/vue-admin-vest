@@ -1,3 +1,4 @@
+export * from './legacy'
 export * from './tailwind'
 export * from './tailwindReference'
 export * from './vue'

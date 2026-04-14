@@ -6,6 +6,7 @@ import { NodePackageImporter } from 'sass-embedded'
 import { createLogger, defineConfig, loadEnv } from 'vite'
 
 import {
+  VitePluginLegacy,
   VitePluginTailwindReference,
   tailwindcss,
   vue,
@@ -35,6 +36,7 @@ export default ({ mode, command }: ConfigEnv) => {
     plugins: [
       vue(),
       vueJsx(),
+      VitePluginLegacy,
       VitePluginTailwindReference(),
       tailwindcss(),
       isBuild ? void 0 : vueDevTools(),
