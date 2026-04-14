@@ -9,6 +9,7 @@ import VitePluginVueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer as RollupPluginVisualizer } from 'rollup-plugin-visualizer'
 import { NodePackageImporter } from 'sass-embedded'
 import { createLogger, defineConfig, loadEnv } from 'vite'
+import { compression } from 'vite-plugin-compression2'
 import VitePluginVueDevTools from 'vite-plugin-vue-devtools'
 
 import { VitePluginTailwindReference } from './builder/plugin'
@@ -31,6 +32,7 @@ export default ({ mode, command }: ConfigEnv) => {
     VITE_SERVER_PORT,
     VITE_PLUGIN_VISUALIZER,
     VITE_DROP_CONSOLE,
+    VITE_PLUGIN_COMPRESSION,
   } = env
 
   logger.info(VITE_APP_TITLE)
@@ -66,6 +68,17 @@ export default ({ mode, command }: ConfigEnv) => {
           filename: 'stats.html',
           gzipSize: true,
           brotliSize: true,
+        })
+      : void 0,
+      isBuild && VITE_PLUGIN_COMPRESSION === 'true' ?
+        compression({
+          include: /\.(html|xml|css|json|js|mjs|svg|yaml|yml|toml)$/,
+          exclude: /\.(png|jpg|jpeg|gif|webp|woff|woff2|gz|br)$/,
+          threshold: 1024,
+          algorithms: ['gzip', 'brotliCompress'],
+          deleteOriginalAssets: false,
+          skipIfLargerOrEqual: true,
+          logLevel: 'info',
         })
       : void 0,
     ],

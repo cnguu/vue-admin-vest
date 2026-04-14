@@ -21,6 +21,9 @@ interface ImportMetaEnv {
 
   /** 生产环境移除调试 */
   readonly VITE_DROP_CONSOLE: 'true' | 'false'
+
+  /** 启用 vite-plugin-compression2 插件 */
+  readonly VITE_PLUGIN_COMPRESSION: 'true' | 'false'
 }
 
 interface ImportMeta {
