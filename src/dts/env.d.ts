@@ -22,7 +22,7 @@ interface ImportMetaEnv {
   /** 生产环境移除调试 */
   readonly VITE_DROP_CONSOLE: 'true' | 'false'
 
-  /** 启用 vite-plugin-compression2 插件 */
+  /** 启用 vite-plugin-compression2 插件和压缩 html */
   readonly VITE_PLUGIN_COMPRESSION: 'true' | 'false'
 }
 

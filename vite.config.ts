@@ -12,7 +12,7 @@ import { createLogger, defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 import VitePluginVueDevTools from 'vite-plugin-vue-devtools'
 
-import { VitePluginTailwindReference } from './builder/plugin'
+import { VitePluginHtmlMinifier, VitePluginTailwindReference } from './builder/plugin'
 import { getServerProxy } from './builder/util'
 
 const logger = createLogger()
@@ -71,17 +71,20 @@ export default ({ mode, command }: ConfigEnv) => {
         })
       : void 0,
       isBuild && VITE_PLUGIN_COMPRESSION === 'true' ?
-        compression({
-          include: /\.(html|xml|css|json|js|mjs|svg|yaml|yml|toml)$/,
-          exclude: /\.(png|jpg|jpeg|gif|webp|woff|woff2|gz|br)$/,
-          threshold: 1024,
-          algorithms: ['gzip', 'brotliCompress'],
-          deleteOriginalAssets: false,
-          skipIfLargerOrEqual: true,
-          logLevel: 'info',
-        })
+        [
+          compression({
+            include: /\.(html|xml|css|json|js|mjs|svg|yaml|yml|toml)$/,
+            exclude: /\.(png|jpg|jpeg|gif|webp|woff|woff2|gz|br)$/,
+            threshold: 1024,
+            algorithms: ['gzip', 'brotliCompress'],
+            deleteOriginalAssets: false,
+            skipIfLargerOrEqual: true,
+            logLevel: 'info',
+          }),
+          VitePluginHtmlMinifier(),
+        ]
       : void 0,
-    ],
+    ].flat(),
     publicDir: 'static',
     cacheDir: 'node_modules/.vite',
     resolve: {
