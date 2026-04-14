@@ -5,13 +5,20 @@ import { URL, fileURLToPath } from 'node:url'
 import { NodePackageImporter } from 'sass-embedded'
 import { createLogger, defineConfig, loadEnv } from 'vite'
 
-import { vue, vueDevTools, vueJsx } from './builder/plugin'
+import {
+  VitePluginTailwindReference,
+  tailwindcss,
+  vue,
+  vueDevTools,
+  vueJsx,
+} from './builder/plugin'
 import { getServerProxy } from './builder/util'
 
 const logger = createLogger()
 
-export default ({ mode }: ConfigEnv) => {
+export default ({ mode, command }: ConfigEnv) => {
   const isDev = mode === 'dev'
+  const isBuild = command === 'build'
 
   const envDir = fileURLToPath(new URL('./src/env', import.meta.url))
 
@@ -25,7 +32,13 @@ export default ({ mode }: ConfigEnv) => {
   return defineConfig({
     root: process.cwd(),
     base: VITE_BASE_URL,
-    plugins: [vue(), vueJsx(), vueDevTools()],
+    plugins: [
+      vue(),
+      vueJsx(),
+      VitePluginTailwindReference(),
+      tailwindcss(),
+      isBuild ? void 0 : vueDevTools(),
+    ],
     publicDir: 'static',
     cacheDir: 'node_modules/.vite',
     resolve: {
