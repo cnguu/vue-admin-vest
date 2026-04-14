@@ -18,6 +18,9 @@ interface ImportMetaEnv {
 
   /** 启用 rollup-plugin-visualizer 插件 */
   readonly VITE_PLUGIN_VISUALIZER: 'true' | 'false'
+
+  /** 生产环境移除调试 */
+  readonly VITE_DROP_CONSOLE: 'true' | 'false'
 }
 
 interface ImportMeta {

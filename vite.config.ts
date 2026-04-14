@@ -30,6 +30,7 @@ export default ({ mode, command }: ConfigEnv) => {
     VITE_SERVER_PROXY,
     VITE_SERVER_PORT,
     VITE_PLUGIN_VISUALIZER,
+    VITE_DROP_CONSOLE,
   } = env
 
   logger.info(VITE_APP_TITLE)
@@ -113,6 +114,16 @@ export default ({ mode, command }: ConfigEnv) => {
       write: true,
       reportCompressedSize: false,
       chunkSizeWarningLimit: 500,
+      rolldownOptions: {
+        output: {
+          minify: {
+            compress: {
+              dropConsole: VITE_DROP_CONSOLE === 'true',
+              dropDebugger: VITE_DROP_CONSOLE === 'true',
+            },
+          },
+        },
+      },
     },
     preview: {
       port: Number(VITE_SERVER_PORT),
