@@ -1,6 +1,6 @@
 {
     "extends": "./tsconfig.app.json",
-    "include": ["src/**/__tests__/*"],
+    "include": ["vitest.config.ts", "src/**/__tests__/*"],
     "exclude": [],
     "compilerOptions": {
         "lib": [],

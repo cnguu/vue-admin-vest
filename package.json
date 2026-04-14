@@ -25,8 +25,7 @@
     },
     "type": "module",
     "scripts": {
-        "build": "run-p type-check \"build-only {@}\" --",
-        "build-only": "vite build",
+        "build": "vite build",
         "dev": "vite --mode dev",
         "format": "prettier --write --cache --ignore-unknown src/",
         "preinstall": "npx only-allow pnpm",

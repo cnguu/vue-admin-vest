@@ -111,7 +111,7 @@ export default ({ mode, command }: ConfigEnv) => {
       sourcemap: 'hidden',
       minify: 'oxc',
       write: true,
-      reportCompressedSize: true,
+      reportCompressedSize: false,
       chunkSizeWarningLimit: 500,
     },
     preview: {
