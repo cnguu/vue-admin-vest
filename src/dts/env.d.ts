@@ -15,6 +15,9 @@ interface ImportMetaEnv {
 
   /** 开发服务器请求代理 */
   readonly VITE_SERVER_PROXY: string
+
+  /** 启用 rollup-plugin-visualizer 插件 */
+  readonly VITE_PLUGIN_VISUALIZER: 'true' | 'false'
 }
 
 interface ImportMeta {
