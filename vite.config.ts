@@ -17,10 +17,10 @@ export default ({ mode }: ConfigEnv) => {
 
   const env = loadEnv(mode, envDir) as ImportMetaEnv
 
-  const { VITE_APP_TITLE, VITE_BASE_URL, SERVER_PORT, SERVER_PROXY } = env
+  const { VITE_APP_TITLE, VITE_BASE_URL, VITE_SERVER_PROXY, VITE_SERVER_PORT } = env
 
   logger.info(VITE_APP_TITLE)
-  logger.info(`当前环境变量:\n${JSON.stringify(env, null, 4)}`)
+  logger.info(`当前环境变量:\n${JSON.stringify(env, null, 2)}`)
 
   return defineConfig({
     root: process.cwd(),
@@ -48,9 +48,9 @@ export default ({ mode }: ConfigEnv) => {
     appType: 'spa',
     server: {
       host: true,
-      port: Number(SERVER_PORT),
+      port: Number(VITE_SERVER_PORT),
       strictPort: true,
-      proxy: SERVER_PROXY ? getServerProxy(SERVER_PROXY) : void 0,
+      proxy: VITE_SERVER_PROXY ? getServerProxy(VITE_SERVER_PROXY) : void 0,
       warmup: {
         clientFiles: ['./index.html', './src/boot.ts'],
       },
@@ -73,7 +73,7 @@ export default ({ mode }: ConfigEnv) => {
       chunkSizeWarningLimit: 500,
     },
     preview: {
-      port: Number(SERVER_PORT),
+      port: Number(VITE_SERVER_PORT),
     },
   })
 }

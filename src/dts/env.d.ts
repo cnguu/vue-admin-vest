@@ -11,10 +11,10 @@ interface ImportMetaEnv {
   readonly VITE_API_URL: string
 
   /** 开发服务器端口 */
-  readonly SERVER_PORT: string
+  readonly VITE_SERVER_PORT: string
 
   /** 开发服务器请求代理 */
-  readonly SERVER_PROXY: string
+  readonly VITE_SERVER_PROXY: string
 }
 
 interface ImportMeta {
