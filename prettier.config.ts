@@ -51,7 +51,7 @@ const config: Config = {
   ],
   importOrderSafeSideEffects: ['^virtual:'],
   importOrderParserPlugins: ['typescript', 'jsx'],
-  importOrderTypeScriptVersion: '6.0.2',
+  importOrderTypeScriptVersion: '6.0.3',
   importOrderCaseSensitive: true,
   overrides: [
     {
