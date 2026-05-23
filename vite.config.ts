@@ -27,7 +27,7 @@ export default ({ mode, command }: ConfigEnv) => {
   const env = loadEnv(mode, envDir) as ImportMetaEnv
 
   const {
-    VITE_APP_TITLE,
+    VITE_APP_NAME,
     VITE_BASE_URL,
     VITE_SERVER_PROXY,
     VITE_SERVER_PORT,
@@ -36,7 +36,7 @@ export default ({ mode, command }: ConfigEnv) => {
     VITE_PLUGIN_COMPRESSION,
   } = env
 
-  logger.info(VITE_APP_TITLE)
+  logger.info(VITE_APP_NAME)
   logger.info(`当前环境变量:\n${JSON.stringify(env, null, 2)}`)
 
   return defineConfig({
