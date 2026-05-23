@@ -8,6 +8,7 @@ import VitePluginVue from '@vitejs/plugin-vue'
 import VitePluginVueJsx from '@vitejs/plugin-vue-jsx'
 import { visualizer as RollupPluginVisualizer } from 'rollup-plugin-visualizer'
 import { NodePackageImporter } from 'sass-embedded'
+import ElementPlus from 'unplugin-element-plus/vite'
 import { createLogger, defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
 import VitePluginVueDevTools from 'vite-plugin-vue-devtools'
@@ -44,6 +45,9 @@ export default ({ mode, command }: ConfigEnv) => {
     plugins: [
       VitePluginVue(),
       VitePluginVueJsx(),
+      ElementPlus({
+        format: 'esm',
+      }),
       VitePluginLegacy({
         targets: ['chrome >= 49', 'android >= 5', 'not IE 11'],
         renderModernChunks: true,
