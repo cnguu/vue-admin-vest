@@ -3,6 +3,7 @@
     "include": ["vitest.config.ts", "src/**/__tests__/*"],
     "exclude": [],
     "compilerOptions": {
+        "verbatimModuleSyntax": true,
         "lib": [],
         "types": ["node", "jsdom"],
         "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.vitest.tsbuildinfo"
