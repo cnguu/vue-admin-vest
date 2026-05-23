@@ -8,7 +8,6 @@
         "vue3",
         "admin",
         "vest",
-        "monorepo",
         "vite"
     ],
     "homepage": "https://github.com/cnguu/vue-admin-vest",
