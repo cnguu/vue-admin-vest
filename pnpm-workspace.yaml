@@ -1,0 +1,2 @@
+patchedDependencies:
+  prettier-plugin-tailwindcss@0.8.0: patches/prettier-plugin-tailwindcss@0.8.0.patch

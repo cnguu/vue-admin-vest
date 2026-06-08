@@ -1,13 +1,6 @@
-import { createApp } from 'vue'
+async function setup() {
+  const { boot } = await import('./boot.ts')
+  await boot()
+}
 
-import App from '@/app.vue'
-import { router } from '@/router'
-import { pinia } from '@/store'
-
-const app = createApp(App)
-
-app.use(pinia)
-
-app.use(router)
-
-app.mount('#app')
+setup()

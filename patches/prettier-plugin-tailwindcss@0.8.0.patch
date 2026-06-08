@@ -1,0 +1,13 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 1fc96d6df4be2e78b193e2cadda19a1da3efa8b9..9c8baaead780784ffefa1d116110551670b863f9 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -1048,7 +1048,7 @@ const { parsers, printers } = createPlugin([
+ 			name: "prettier/plugins/html",
+ 			importer: () => import("prettier/plugins/html")
+ 		}],
+-		compatible: ["prettier-plugin-organize-attributes"],
++		compatible: ["prettier-plugin-organize-attributes", "@ianvs/prettier-plugin-sort-imports"],
+ 		parsers: {
+ 			html: {},
+ 			lwc: {},

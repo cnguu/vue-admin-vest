@@ -3,8 +3,11 @@
     "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"],
     "exclude": ["**/__tests__/*"],
     "compilerOptions": {
+        "moduleResolution": "bundler",
         "noUncheckedIndexedAccess": true,
         "verbatimModuleSyntax": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true,
         "paths": {
             "@/*": ["./src/*"]
         },
