@@ -64,7 +64,7 @@ importers:
     devDependencies:
       '@ianvs/prettier-plugin-sort-imports':
         specifier: 4.7.1
-        version: 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.1)
+        version: 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.3)
       '@iconify/tailwind4':
         specifier: 1.2.3
         version: 1.2.3(tailwindcss@4.3.1)
@@ -162,17 +162,17 @@ importers:
         specifier: 4.0.9
         version: 4.0.9(postcss@8.5.16)
       prettier:
-        specifier: 3.9.1
-        version: 3.9.1
+        specifier: 3.9.3
+        version: 3.9.3
       prettier-plugin-packagejson:
         specifier: 3.0.2
-        version: 3.0.2(prettier@3.9.1)
+        version: 3.0.2(prettier@3.9.3)
       prettier-plugin-sh:
         specifier: 0.18.1
-        version: 0.18.1(prettier@3.9.1)
+        version: 0.18.1(prettier@3.9.3)
       prettier-plugin-tailwindcss:
         specifier: 0.8.0
-        version: 0.8.0(patch_hash=ca0f8171d093c4cbdc426458e05e4062fde2597c25cdd135b7f70238e4f546a0)(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.1))(prettier@3.9.1)
+        version: 0.8.0(patch_hash=ca0f8171d093c4cbdc426458e05e4062fde2597c25cdd135b7f70238e4f546a0)(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.3))(prettier@3.9.3)
       rollup-plugin-visualizer:
         specifier: 7.0.1
         version: 7.0.1(rolldown@1.1.3)
@@ -2351,8 +2351,8 @@ packages:
     engines: {node: '>=14'}
     hasBin: true
 
-  electron-to-chromium@1.5.380:
-    resolution: {integrity: sha512-W6d5AbuEoRayO447cqrg6lKJIlscgRnnxOZl/08kfV71BQDoEBC7Wwis68z87LjyK6f4kWyTaubuDbhHKrZkbA==}
+  electron-to-chromium@1.5.381:
+    resolution: {integrity: sha512-n9Wa6yB+vDsGuA8AKbl/0z7HbvWqt5jxIdvr1IUicd0ryPrk7/xzwqLv8D9AbbvZ6avVNtXYLTfmgFHkwkyelg==}
 
   element-plus@2.14.2:
     resolution: {integrity: sha512-eNH9uP3wQoNqieEIHXiNvIVv+zO5sZDU0CAZq5b0zqSN06DD0/V9xIq1R/qm3rw5k3nBTM1JvpxhCfRbaFLzDQ==}
@@ -2545,8 +2545,8 @@ packages:
   fast-levenshtein@2.0.6:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
 
-  fast-uri@3.1.2:
-    resolution: {integrity: sha512-rVjf7ArG3LTk+FS6Yw81V1DLuZl1bRbNrev6Tmd/9RaroeeRRJhAt7jg/6YFxbvAQXUCavSoZhPPj6oOx+5KjQ==}
+  fast-uri@3.1.3:
+    resolution: {integrity: sha512-i70LwGWUduXqzicKXWshooq+sWL1K3WUU5rKZNG/0i3a1OSoX3HqhH5WbWwTmqWfor4urUakGPiRQcleRZTwOg==}
 
   fastest-levenshtein@1.0.16:
     resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
@@ -3467,8 +3467,8 @@ packages:
       prettier-plugin-svelte:
         optional: true
 
-  prettier@3.9.1:
-    resolution: {integrity: sha512-ppiDo2CSwexck1eyZUwJHg/N3nf1+6IRCv7W/VJ5vaLnVCmB7+3CdRfMwoCHBBX6xTrREDTksZ4OZl5SSf4zXA==}
+  prettier@3.9.3:
+    resolution: {integrity: sha512-HWmu+K+zvHNpaMfSnYeqdqrDbR16cuIXaPx8WoHaviQkDJh1/0BNtOZmHVQI5jc3wXv0H1yXc9wjvFdXh+n3hQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -5359,13 +5359,13 @@ snapshots:
 
   '@humanwhocodes/retry@0.4.3': {}
 
-  '@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.1)':
+  '@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.3)':
     dependencies:
       '@babel/generator': 7.29.7
       '@babel/parser': 7.29.7
       '@babel/traverse': 7.29.7
       '@babel/types': 7.29.7
-      prettier: 3.9.1
+      prettier: 3.9.3
       semver: 7.8.5
     optionalDependencies:
       '@vue/compiler-sfc': 3.5.39
@@ -6265,7 +6265,7 @@ snapshots:
   ajv@8.20.0:
     dependencies:
       fast-deep-equal: 3.1.3
-      fast-uri: 3.1.2
+      fast-uri: 3.1.3
       json-schema-traverse: 1.0.0
       require-from-string: 2.0.2
 
@@ -6380,7 +6380,7 @@ snapshots:
     dependencies:
       baseline-browser-mapping: 2.10.40
       caniuse-lite: 1.0.30001799
-      electron-to-chromium: 1.5.380
+      electron-to-chromium: 1.5.381
       node-releases: 2.0.50
       update-browserslist-db: 1.2.3(browserslist@4.28.4)
 
@@ -6620,7 +6620,7 @@ snapshots:
       minimatch: 9.0.9
       semver: 7.8.5
 
-  electron-to-chromium@1.5.380: {}
+  electron-to-chromium@1.5.381: {}
 
   element-plus@2.14.2(vue@3.5.39(typescript@6.0.3)):
     dependencies:
@@ -6850,7 +6850,7 @@ snapshots:
 
   fast-levenshtein@2.0.6: {}
 
-  fast-uri@3.1.2: {}
+  fast-uri@3.1.3: {}
 
   fastest-levenshtein@1.0.16: {}
 
@@ -7601,25 +7601,25 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-packagejson@3.0.2(prettier@3.9.1):
+  prettier-plugin-packagejson@3.0.2(prettier@3.9.3):
     dependencies:
       sort-package-json: 3.7.1
     optionalDependencies:
-      prettier: 3.9.1
+      prettier: 3.9.3
 
-  prettier-plugin-sh@0.18.1(prettier@3.9.1):
+  prettier-plugin-sh@0.18.1(prettier@3.9.3):
     dependencies:
       '@reteps/dockerfmt': 0.5.4
-      prettier: 3.9.1
+      prettier: 3.9.3
       sh-syntax: 0.5.8
 
-  prettier-plugin-tailwindcss@0.8.0(patch_hash=ca0f8171d093c4cbdc426458e05e4062fde2597c25cdd135b7f70238e4f546a0)(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.1))(prettier@3.9.1):
+  prettier-plugin-tailwindcss@0.8.0(patch_hash=ca0f8171d093c4cbdc426458e05e4062fde2597c25cdd135b7f70238e4f546a0)(@ianvs/prettier-plugin-sort-imports@4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.3))(prettier@3.9.3):
     dependencies:
-      prettier: 3.9.1
+      prettier: 3.9.3
     optionalDependencies:
-      '@ianvs/prettier-plugin-sort-imports': 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.1)
+      '@ianvs/prettier-plugin-sort-imports': 4.7.1(@vue/compiler-sfc@3.5.39)(prettier@3.9.3)
 
-  prettier@3.9.1: {}
+  prettier@3.9.3: {}
 
   proto-list@1.2.4: {}
 
