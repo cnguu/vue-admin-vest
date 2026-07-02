@@ -1,26 +1,29 @@
 pre-commit:
-  parallel: true
-  commands:
-    lint-style:
-      glob: '*.{css,scss,sass,less,styl,html,vue}'
+  piped: true
+  jobs:
+    - name: lint-stylelint
+      glob: 'src/**/*.{css,scss,sass,less,styl,html,vue}'
       run: pnpm stylelint --fix --cache --allow-empty-input {staged_files}
       stage_fixed: true
-    lint-vue:
-      glob: '*.vue'
+    - name: lint-eslint
+      glob: '{src,builder}/**/*.{js,jsx,ts,tsx,vue,json5}'
       run: pnpm eslint --fix --cache {staged_files}
       stage_fixed: true
-    lint-js:
-      glob: '*.{js,jsx,ts,tsx}'
-      run: pnpm eslint --fix --cache {staged_files}
-      stage_fixed: true
-    lint-package:
-      glob: 'package.json'
-      run: pnpm prettier --write --cache {staged_files}
-      stage_fixed: true
-    lint-json:
-      glob: '{!(package)*.json,*.code-snippets,.!(browserslist)*rc}'
-      run: pnpm prettier --write --cache {staged_files}
-      stage_fixed: true
+    - group:
+        parallel: true
+        jobs:
+          - name: lint-prettier
+            glob: '{src,builder}/**/*.{css,scss,sass,less,styl,html,js,jsx,ts,tsx,vue,json5}'
+            run: pnpm prettier --write --cache {staged_files}
+            stage_fixed: true
+          - name: lint-package
+            glob: 'package.json'
+            run: pnpm prettier --write --cache {staged_files}
+            stage_fixed: true
+          - name: lint-json
+            glob: '{src,builder}/{!(package)*.json,.!(browserslist)*rc}'
+            run: pnpm prettier --write --cache {staged_files}
+            stage_fixed: true
 
 post-merge:
   commands:
