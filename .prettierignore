@@ -1,0 +1,6 @@
+dist
+dist-ssr
+coverage
+src/dts/auto-imports.d.ts
+src/dts/components.d.ts
+src/dts/typed-router.d.ts
