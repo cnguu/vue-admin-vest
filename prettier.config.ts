@@ -64,6 +64,26 @@ const config: Config = {
         functionNextLine: false,
       },
     },
+    {
+      files: ['*.json'],
+      options: {
+        tabWidth: 4,
+        insertPragma: false,
+      },
+    },
+    {
+      files: ['*.json5'],
+      options: {
+        tabWidth: 2,
+        insertPragma: false,
+      },
+    },
+    {
+      files: ['*.yml', '*.yaml'],
+      options: {
+        tabWidth: 2,
+      },
+    },
   ],
 }
 
