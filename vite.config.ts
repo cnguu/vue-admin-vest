@@ -2,6 +2,7 @@ import type { ConfigEnv } from 'vite'
 
 import { URL, fileURLToPath } from 'node:url'
 
+import ViteVueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 import VitePluginTailwindcss from '@tailwindcss/vite'
 import VitePluginLegacy from '@vitejs/plugin-legacy'
 import VitePluginVue from '@vitejs/plugin-vue'
@@ -11,7 +12,9 @@ import { NodePackageImporter } from 'sass-embedded'
 import ElementPlus from 'unplugin-element-plus/vite'
 import { createLogger, defineConfig, loadEnv } from 'vite'
 import { compression } from 'vite-plugin-compression2'
+import VitePluginJson5 from 'vite-plugin-json5'
 import VitePluginVueDevTools from 'vite-plugin-vue-devtools'
+import ViteVueRouter from 'vue-router/vite'
 
 import { VitePluginHtmlMinifier, VitePluginTailwindReference } from './builder/plugin'
 import { getServerProxy } from './builder/util'
@@ -27,22 +30,29 @@ export default ({ mode, command }: ConfigEnv) => {
   const env = loadEnv(mode, envDir) as ImportMetaEnv
 
   const {
-    VITE_APP_NAME,
     VITE_BASE_URL,
     VITE_SERVER_PROXY,
     VITE_SERVER_PORT,
+    VITE_DEV_TOOLS,
     VITE_PLUGIN_VISUALIZER,
     VITE_DROP_CONSOLE,
     VITE_PLUGIN_COMPRESSION,
   } = env
 
-  logger.info(VITE_APP_NAME)
   logger.info(`当前环境变量:\n${JSON.stringify(env, null, 2)}`)
 
   return defineConfig({
     root: process.cwd(),
     base: VITE_BASE_URL,
     plugins: [
+      VitePluginJson5({ dts: false }),
+      ViteVueRouter({
+        extensions: ['.vue'],
+        routesFolder: ['src/page'],
+        exclude: ['**/component/**'],
+        importMode: 'async',
+        dts: './src/dts/typed-router.d.ts',
+      }),
       VitePluginVue(),
       VitePluginVueJsx(),
       ElementPlus({
@@ -63,9 +73,16 @@ export default ({ mode, command }: ConfigEnv) => {
           'web.dom-collections.for-each',
         ],
       }),
+      ViteVueI18nPlugin({
+        compositionOnly: true,
+        fullInstall: true,
+        runtimeOnly: true,
+      }),
       VitePluginTailwindReference(),
       VitePluginTailwindcss(),
-      isBuild ? void 0 : VitePluginVueDevTools(),
+      isBuild ? void 0
+      : VITE_DEV_TOOLS === 'true' ? VitePluginVueDevTools()
+      : void 0,
       isBuild && VITE_PLUGIN_VISUALIZER === 'true' ?
         RollupPluginVisualizer({
           open: true,
@@ -95,7 +112,7 @@ export default ({ mode, command }: ConfigEnv) => {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
       },
-      extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json'],
+      extensions: ['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json', '.json5'],
     },
     css: {
       preprocessorOptions: {
@@ -119,7 +136,6 @@ export default ({ mode, command }: ConfigEnv) => {
       },
     },
     build: {
-      target: 'es2015',
       modulePreload: {
         polyfill: true,
       },
@@ -129,7 +145,7 @@ export default ({ mode, command }: ConfigEnv) => {
       cssCodeSplit: true,
       cssTarget: 'chrome61',
       cssMinify: 'lightningcss',
-      sourcemap: 'hidden',
+      sourcemap: false,
       minify: 'oxc',
       write: true,
       reportCompressedSize: false,
@@ -146,7 +162,7 @@ export default ({ mode, command }: ConfigEnv) => {
       },
     },
     preview: {
-      port: Number(VITE_SERVER_PORT),
+      port: Number(VITE_SERVER_PORT) - 1,
     },
   })
 }

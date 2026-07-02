@@ -221,6 +221,9 @@ importers:
       vite-plugin-compression2:
         specifier: 2.5.3
         version: 2.5.3
+      vite-plugin-json5:
+        specifier: 1.4.4
+        version: 1.4.4(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0))
       vite-plugin-vue-devtools:
         specifier: 8.1.5
         version: 8.1.5(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3))
@@ -4129,6 +4132,11 @@ packages:
     peerDependenciesMeta:
       '@nuxt/kit':
         optional: true
+
+  vite-plugin-json5@1.4.4:
+    resolution: {integrity: sha512-1ptJx87gjSIeZofaSWT88m85N778T8lgKcXuAzbNCcthSOTQxjvIrMSM3QKVtESx339zZhHKQl73stacl9MGbw==}
+    peerDependencies:
+      vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
 
   vite-plugin-vue-devtools@8.1.5:
     resolution: {integrity: sha512-QSVntSN0sbVV08CZntMWOfF8McyPyYyYd19sChLjxYyFCC7Fcpey74ztw1uCCU23wTmR2yWPb92uaxVD4Lw0Fg==}
@@ -8257,6 +8265,14 @@ snapshots:
       unplugin-utils: 0.3.2
       vite: 8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0)
       vite-dev-rpc: 2.0.0(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0))
+
+  vite-plugin-json5@1.4.4(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0)):
+    dependencies:
+      '@rollup/pluginutils': 5.4.0
+      json5: 2.2.3
+      vite: 8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0)
+    transitivePeerDependencies:
+      - rollup
 
   vite-plugin-vue-devtools@8.1.5(vite@8.1.3(@types/node@26.1.0)(jiti@2.7.0)(sass-embedded@1.100.0)(sass@1.100.0)(terser@5.48.0)(yaml@2.9.0))(vue@3.5.39(typescript@6.0.3)):
     dependencies:
