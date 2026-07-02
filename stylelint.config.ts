@@ -29,13 +29,13 @@ const ignoreAtRules = [
 ]
 
 export default {
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json', '**/*.md'],
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts', '**/*.json', '**/*.json5', '**/*.md'],
   extends: ['stylelint-config-standard', 'stylelint-config-recess-order'],
   plugins: ['stylelint-order', '@stylistic/stylelint-plugin', 'stylelint-scss'],
   overrides: [
     {
-      customSyntax: 'postcss-html',
       files: ['*.(html|vue)', '**/*.(html|vue)'],
+      customSyntax: 'postcss-html',
       rules: {
         'selector-pseudo-class-no-unknown': [
           true,
@@ -52,9 +52,9 @@ export default {
       },
     },
     {
+      files: ['*.scss', '**/*.scss'],
       customSyntax: 'postcss-scss',
       extends: ['stylelint-config-recommended-scss', 'stylelint-config-recommended-vue/scss'],
-      files: ['*.scss', '**/*.scss'],
     },
   ],
   rules: {
@@ -65,6 +65,7 @@ export default {
         ignoreAtRules,
       },
     ],
+    'custom-property-pattern': [null, { severity: 'warning' }],
     'font-family-no-missing-generic-family-keyword': null,
     'function-no-unknown': null,
     'import-notation': null,
